@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Phiếu <%= typeOfService%></title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      font-size: 14px;
+      margin: 40px;
+      line-height: 1.5;
+    }
+    p {
+      margin: 0;
+    }
+    h2 {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    div {
+      margin-bottom: 8px;
+      margin-top: 8px;
+    }
+
+    div > div {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .header .left {
+      width: 60%;
+    }
+    .header .right {
+      text-align: right;
+      width: 40%;
+    }
+    .section {
+      margin-top: 10px;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .box {
+      border: 1px solid #000;
+      padding: 8px;
+      min-height: 100px;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 20px;
+    }
+    .signature p {
+      margin: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td {
+      vertical-align: top;
+      padding: 3px 0;
+    }
+    .footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="left">
+    <p>Sở Y tế: <%= departmentOfHealth%></p>
+    <p>BV: <%= hospital%></p>
+  </div>
+  <div class="right">
+    <p>Mã số: MS:29/BV-02</p>
+    <p>Số vào viện: <%= recordNumber%></p>
+  </div>
+</div>
+
+
+<h2>PHIẾU <%= typeOfService.toUpperCase()%></h2>
+
+<p><strong>Nơi khám bệnh:</strong> <%= address %></p>
+
+<div class="section">
+  <div class="section-title">Hành chính:</div>
+  <table>
+    <tr>
+      <td>1. Họ và tên (in hoa): <%= patientName.toUpperCase() %></td>
+      <td>2. Sinh ngày: <%= birthDate %> Tuổi: <%= new Date().getFullYear() - new Date(birthDate).getFullYear() %></td>
+    </tr>
+    <tr>
+      <td>3. Giới tính: <%= gender %></td>
+      <td>4. Nghề nghiệp: ..........................................................</td>
+    </tr>
+    <tr>
+      <td>5. Dân tộc: ...............................................................</td>
+      <td>6. Ngoại kiều: .........................................................</td>
+    </tr>
+    <tr>
+      <td colspan="2">7. Địa chỉ: <%= addressOfPatient %></td>
+    </tr>
+    <tr>
+      <td colspan="2">8. Nơi làm việc: .........................................................</td>
+    </tr>
+    <tr>
+      <td>9. Đối tượng: ☐ BHYT ☐ Thu phí ☐ Miễn ☐ Khác</td>
+      <td>Số thẻ BHYT: ........................................................</td>
+    </tr>
+    <tr>
+      <td colspan="2">10. BHYT giá trị đến ngày ...... tháng ...... năm ............</td>
+    </tr>
+    <tr>
+      <td colspan="2">11. Họ tên, địa chỉ người nhà khi cần báo tin: .......................................................
+        Điện thoại: ..........................................
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">12. Đến khám bệnh lúc ...... giờ ...... phút, ngày ...... tháng ...... năm ........</td>
+    </tr>
+  </table>
+</div>
+
+<div class="section">
+  <!--        assessmentItems -->
+  <%- detailContent%>
+</div>
+
+
+<div class="signature">
+  <p><%= resultDate%></p>
+  <p><strong>Bác sĩ chuyên khoa</strong></p>
+  <p><%= specialistDoctor%></p>
+</div>
+
+</body>
+</html>
