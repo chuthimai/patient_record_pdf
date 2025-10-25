@@ -81,6 +81,28 @@ export function renderAssessmentItemsHTML(items, level = 0) {
     return html;
 }
 
+// Map SNOMED code → tiếng Việt
+const SNOMEDCTFormCodes = {
+    "385055001": "Viên nén",
+    "66076007": "Viên nhai",
+    "385057009": "Viên nang",
+    "385023001": "Dung dịch uống",
+    "385024007": "Hỗn dịch uống",
+    "385018001": "Giọt uống",
+    "385219001": "Dung dịch tiêm",
+    "385108007": "Kem bôi",
+    "385100003": "Thuốc mỡ",
+    "385133007": "Bột hít"
+};
+
+/**
+ * Trả về tên tiếng Việt cho SNOMED code
+ * @param {string} code
+ */
+export function getDoseFormName(code) {
+    return SNOMEDCTFormCodes[code] || "Không xác định";
+}
+
 
 export async function htmlToPdf(templatePath, pdfPath, data) {
     // 1. Render HTML từ EJS template

@@ -51,13 +51,23 @@
             min-height: 100px;
         }
 
-        .signature {
-            text-align: right;
+        .signature-row {
+            display:flex;
+            justify-content:space-between;
+            align-items:flex-start;
             margin-top: 20px;
+            font-size:13px;
         }
-        .signature p {
-            margin: 0;
+        .sig-right {
+            text-align:center;
+            width:40%;
         }
+        .signature-line {
+            margin-top:36px;
+            width: 80%;
+            margin-left: auto;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -113,10 +123,14 @@
     </div>
 </div>
 
-<div class="signature">
-    <p><%= requestDate%></p>
-    <p><strong>Bác sĩ điều trị</strong></p>
-    <p><%= treatingDoctor%></p>
+<div class="signature-row">
+    <div></div>
+    <div class="sig-right">
+        <p><%= requestDate%></p>
+        <p><strong>Bác sĩ điều trị</strong></p>
+        <div class="signature-line"></div>
+        <p><%= treatingDoctor%></p>
+    </div>
 </div>
 
 <div class="section">
@@ -144,11 +158,12 @@
     </div>
 </div>
 
-<div class="footer">
-    <div><strong>Lời dặn của BS chuyên khoa:</strong> {{specialistNote}}</div>
-    <div class="signature">
+<div class="signature-row">
+    <div ><strong>Lời dặn của BS chuyên khoa:</strong> {{specialistNote}}</div>
+    <div class="sig-right">
         <p><%= resultDate%></p>
         <p><strong>Bác sĩ chuyên khoa</strong></p>
+        <div class="signature-line"></div>
         <p><%= specialistDoctor%></p>
     </div>
 </div>
