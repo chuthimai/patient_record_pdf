@@ -1,5 +1,4 @@
 import * as puppeteer from 'puppeteer';
-import * as fs from 'fs';
 import ejs from 'ejs';
 
 // Ghi chú quan trọng:
@@ -8,7 +7,31 @@ import ejs from 'ejs';
 // <%- var %> → In ra HTML thô (dùng khi bạn muốn render HTML sẵn có, ví dụ biểu đồ).
 // <% ... %> → Viết code JS như if, for, switch, v.v.
 
-export function formatVietnameseDate(dateInput) {
+export function formatVietnameseDateWithText(dateInput) {
+    // Nếu đầu vào là string thì chuyển sang đối tượng Date
+    const date = new Date(dateInput);
+
+    // Lấy ngày, tháng, năm
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `Ngày ${day} tháng ${month} năm ${year}`;
+}
+
+export function formatVietnameseDateWithoutText(dateInput) {
+    // Nếu đầu vào là string thì chuyển sang đối tượng Date
+    const date = new Date(dateInput);
+
+    // Lấy ngày, tháng, năm
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+}
+
+export  function formatVietnameseFullDateTime(dateInput) {
     // Nếu đầu vào là string thì chuyển sang đối tượng Date
     const date = new Date(dateInput);
 
@@ -16,8 +39,9 @@ export function formatVietnameseDate(dateInput) {
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); // tháng bắt đầu từ 0
     const year = date.getFullYear();
-
-    return `Ngày ${day} tháng ${month} năm ${year}`;
+    const hour = date.getHours().toString().padStart(2, '0');
+    const minute = date.getMinutes().toString().padStart(2, '0');
+    return `${hour} giờ ${minute} phút, ngày ${day} tháng ${month} năm ${year}`
 }
 
 export function renderAssessmentItemsHTML(items, level = 0) {

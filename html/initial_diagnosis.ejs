@@ -100,36 +100,20 @@
   <table>
     <tr>
       <td>1. Họ và tên (in hoa): <%= patientName.toUpperCase() %></td>
-      <td>2. Sinh ngày: <%= birthDate %> Tuổi: <%= new Date().getFullYear() - new Date(birthDate).getFullYear() %></td>
+      <td>2. Sinh ngày: <%= birthDate %> - Tuổi: <%= new Date().getFullYear() - new Date(birthDate).getFullYear() %></td>
     </tr>
     <tr>
       <td>3. Giới tính: <%= gender %></td>
-      <td>4. Nghề nghiệp: ..........................................................</td>
+      <td>4. Điện thoại: <%= telecom %></td>
     </tr>
     <tr>
-      <td>5. Dân tộc: ...............................................................</td>
-      <td>6. Ngoại kiều: .........................................................</td>
+      <td colspan="2">5. Địa chỉ: <%= addressOfPatient %></td>
     </tr>
     <tr>
-      <td colspan="2">7. Địa chỉ: <%= addressOfPatient %></td>
+      <td>6. Đối tượng: ☐ BHYT ☐ Thu phí ☐ Miễn ☐ Khác</td>
     </tr>
     <tr>
-      <td colspan="2">8. Nơi làm việc: .........................................................</td>
-    </tr>
-    <tr>
-      <td>9. Đối tượng: ☐ BHYT ☐ Thu phí ☐ Miễn ☐ Khác</td>
-      <td>Số thẻ BHYT: ........................................................</td>
-    </tr>
-    <tr>
-      <td colspan="2">10. BHYT giá trị đến ngày ...... tháng ...... năm ............</td>
-    </tr>
-    <tr>
-      <td colspan="2">11. Họ tên, địa chỉ người nhà khi cần báo tin: .......................................................
-        Điện thoại: ..........................................
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">12. Đến khám bệnh lúc ...... giờ ...... phút, ngày ...... tháng ...... năm ........</td>
+      <td colspan="2">12. Đến khám bệnh lúc <%= createPatientRecord%></td>
     </tr>
   </table>
 </div>

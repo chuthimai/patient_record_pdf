@@ -1,5 +1,7 @@
 import {
-    formatVietnameseDate,
+    formatVietnameseDateWithText,
+    formatVietnameseFullDateTime,
+    formatVietnameseDateWithoutText,
     renderAssessmentItemsHTML,
     htmlToPdf }
     from './utils.js';
@@ -73,17 +75,19 @@ const data = {
     recordNumber: 12345,
     typeOfService: serviceName,
     patientName: 'Nguyễn Văn A',
-    birthDate: new Date("2003-07-03").toLocaleDateString("vi-VN"),
+    birthDate:formatVietnameseDateWithoutText(new Date("2003-07-03")),
     gender: 'Nữ',
     addressOfPatient: "1B, C, D",
+    telecom: "0981726311",
+    createPatientRecord: formatVietnameseFullDateTime(new Date()),
     specialize: "Ngoại khoa",
     address: "Phòng 103, Tầng 1, toà B",
     conclusionOfClinicalDiagnosis: "Gãy xương tay",
     request: `${serviceName}`,
-    requestDate: formatVietnameseDate(new Date()),
+    requestDate: formatVietnameseDateWithText(new Date()),
     treatingDoctor: "Nguyen Van A",
     detailContent: renderAssessmentItemsHTML(assessmentItems),
-    resultDate: formatVietnameseDate(new Date()),
+    resultDate: formatVietnameseDateWithText(new Date()),
     specialistDoctor: "Tran Thi B",
 };
 

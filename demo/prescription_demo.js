@@ -1,7 +1,9 @@
 import {
-    formatVietnameseDate,
+    formatVietnameseDateWithoutText,
+    formatVietnameseDateWithText,
     getDoseFormName,
-    htmlToPdf }
+    htmlToPdf
+}
     from './utils.js';
 
 // Đơn thuốc
@@ -66,7 +68,7 @@ const data = {
     phoneNumber: "0987654321", // SĐT liên hệ của bệnh viện
     recordNumber: 12345,
     patientName: 'Nguyễn Văn A',
-    birthDate: new Date("2003-07-03").toLocaleDateString("vi-VN"),
+    birthDate: formatVietnameseDateWithoutText(new Date("2003-07-03")),
     gender: 'Nữ',
     addressOfPatient: "1B, C, D",
     finalDiagnosis: "Gãy xương ngón út tay trái",
@@ -84,11 +86,13 @@ const data = {
             }
         }
     }),
-    issueDate: formatVietnameseDate(new Date()),
+    note: "- Đã tư vấn kỹ cho bệnh nhân về đơn thuốc và đơn tư vấn và bệnh nhân đồng ý sử dụng, khám lại sau 3 tuần.\n" +
+        "- Nếu có dấu hiệu bất thường (phát ban, khó thở...), ngưng thuốc và liên hệ bệnh viện ngay",
+    issueDate: formatVietnameseDateWithText(new Date()),
     doctorName: "Trần Thị B",
 };
 
-const template = '../html/prescription.esj';
+const template = '../html/prescription.ejs';
 const output = '../pdf/prescription.pdf';
 
 htmlToPdf(template,output, data);

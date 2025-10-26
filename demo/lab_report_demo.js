@@ -1,7 +1,8 @@
 import {
-    formatVietnameseDate,
+    formatVietnameseDateWithText,
     renderAssessmentItemsHTML,
-    htmlToPdf }
+    htmlToPdf, formatVietnameseDateWithoutText
+}
     from './utils.js';
 
 // Xét nghiệm
@@ -32,20 +33,20 @@ const data = {
     departmentOfHealth: "Hà Nội",
     hospital: "Bệnh viện A",
     recordNumber: 12345,
-    typeOfService: "Xét nghiệm huyết học",
+    typeOfService: serviceName,
     patientName: 'Nguyễn Văn A',
-    birthDate: new Date("2003-07-03").toLocaleDateString("vi-VN"),
+    birthDate: formatVietnameseDateWithoutText(new Date("2003-07-03")),
     gender: 'Nữ',
     addressOfPatient: "1B, C, D",
     specialize: "Ngoại khoa",
     address: "Phòng 103, Tầng 1, toà B",
     conclusionOfClinicalDiagnosis: "Bình thường",
     request: `${serviceName}`,
-    requestDate: formatVietnameseDate(new Date()),
+    requestDate: formatVietnameseDateWithText(new Date()),
     treatingDoctor: "Nguyen Van A",
     detailContent: renderAssessmentItemsHTML(assessmentItems),
     interpretation: interpretation,
-    resultDate: formatVietnameseDate(new Date()),
+    resultDate: formatVietnameseDateWithText(new Date()),
     specialistDoctor: "Tran Thi B",
 };
 

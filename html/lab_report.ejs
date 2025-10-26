@@ -76,11 +76,6 @@
             vertical-align: top;
             padding: 3px 0;
         }
-        .footer {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
     </style>
 </head>
 <body>
@@ -135,26 +130,11 @@
 
 <div class="section">
     <strong>Kết quả xét nghiệm</strong>
-    <div class="box">
+    <div class="box" style="white-space: pre-line;">
         <!--        assessmentItems -->
         <%- detailContent%>
         <!--        interpretation-->
         <p>Diễn giải kết quả: <%= interpretation%></p>
-    </div>
-</div>
-
-<div class="section">
-    <strong>Nhận xét:</strong>
-    <div class="box">
-        {{serviceName}}
-    </div>
-    <strong>Kết luận:</strong>
-    <div class="box">
-        {{serviceName}}
-    </div>
-    <strong>Đề nghị:</strong>
-    <div class="box">
-        {{serviceName}}
     </div>
 </div>
 
